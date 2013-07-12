@@ -58,3 +58,4 @@ $db = new Database(
 */
 $Page = new Page($db);
 $Project = new Project($db);
+$User = new User($db);

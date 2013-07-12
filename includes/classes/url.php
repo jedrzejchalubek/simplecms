@@ -37,7 +37,7 @@ class Url
 	 * @param  Bool $admin
 	 * @return String
 	 */
-	public static function css($url = null, $admin = null)
+	public static function css($url = null, $admin = false)
 	{
 		if($admin) $admin = 'admin/';
 
@@ -50,7 +50,7 @@ class Url
 	 * @param  Bool $admin
 	 * @return String
 	 */
-	public static function js($url = null, $admin = null)
+	public static function js($url = null, $admin = false)
 	{
 		if($admin) $admin = 'admin/';
 

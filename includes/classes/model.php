@@ -8,7 +8,7 @@
  | By default operates on all table columns.
  | 
 */
-class Model
+class Model extends Database
 {
 	
 	protected $db;

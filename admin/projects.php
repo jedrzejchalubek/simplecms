@@ -2,24 +2,28 @@
 
 require_once "../head.php";
 
-// Fetch all projects
-$projects = $Project->fetch();
+if ($User->isLogged()) {  
+	// Fetch all projects
+	$projects = $Project->fetch();
 
-$data = array();
+	$data = array();
 
-// There is any project?
-if ($projects) {
+	// There is any project?
+	if ($projects) {
 
-	$data = array(
-		'projects' => $projects,
-	);
+		$data = array(
+			'projects' => $projects,
+		);
 
-	// Make project list view
-	View::admin('projects', $data);
+		// Make project list view
+		View::admin('projects', $data);
 
+	} else {
+
+		// Make project list view
+		View::admin('projects', $data);
+		
+	}
 } else {
-
-	// Make project list view
-	View::admin('projects', $data);
-	
+	Server::redirect('/login');
 }

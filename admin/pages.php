@@ -2,24 +2,27 @@
 
 require_once "../head.php";
 
-// Fetch all pages
-$pages = $Page->fetch();
+if ($User->isLogged()) { 
+	$pages = $Page->fetch();
 
-$data = array();
+	$data = array();
 
-// There is any page?
-if ($pages) {
+	// There is any page?
+	if ($pages) {
 
-	$data = array(
-		'pages' => $pages,
-	);
+		$data = array(
+			'pages' => $pages,
+		);
 
-	// Make pages list view
-	View::admin('pages', $data);
+		// Make pages list view
+		View::admin('pages', $data);
 
+	} else {
+
+		// Make pages list view
+		View::admin('pages', $data);
+		
+	}
 } else {
-
-	// Make pages list view
-	View::admin('pages', $data);
-	
+	Server::redirect('/login');
 }

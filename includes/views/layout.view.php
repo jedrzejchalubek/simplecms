@@ -6,9 +6,6 @@
  | The general template for views
  | 
 */
-
-// Setting chartset
-header('Content-Type: text/html; charset=utf-8');
 ?>
 
 <!doctype html>

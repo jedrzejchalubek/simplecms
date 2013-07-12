@@ -17,7 +17,7 @@ class View
 	 * @param  Array $data
 	 * @param  String $path
 	 */
-	public static function app($name, $data = null, $layout = true)
+	public static function app($name, $data = null, $layout = false)
 	{	
 		// If data exist, extract to variables
 		if ($data) extract($data);
@@ -26,7 +26,7 @@ class View
 		$view = ROOT_PATH . "includes/views/{$name}.view.php";
 
 		// If layout argument is true
-		if ($layout) {
+		if (!$layout) {
 			// Include view with layout
 			include ROOT_PATH . "includes/views/layout.view.php";
 		} else {
@@ -41,7 +41,7 @@ class View
 	 * @param  Array $data
 	 * @param  String $path
 	 */
-	public static function admin($name, $data = null, $layout = true)
+	public static function admin($name, $data = null, $layout = false)
 	{	
 		// If data exist, extract to variables
 		if ($data) extract($data);
@@ -50,14 +50,13 @@ class View
 		$view = ROOT_PATH . "includes/views/admin/{$name}.view.php";
 
 		// If layout argument is true
-		if ($layout) {
+		if (!$layout) {
 			// Include view with layout
 			include ROOT_PATH . "includes/views/admin/layout.view.php";
 		} else {
 			// Include view without default layout
 			include $view;
 		}
-		
 	}
 
 }
