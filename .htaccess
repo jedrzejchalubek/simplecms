@@ -1,0 +1,18 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+#Without www
+RewriteCond %{HTTP_HOST} ^www.jedrzejchalubek.com$ [NC]
+RewriteRule ^(.*)$ http://jedrzejchalubek.com/$1 [R=301,L]
+
+#Pretty urls
+RewriteRule ^project/([a-zA-Z0-9_-]+)$ page.php?slug=$1
+RewriteRule ^project/([a-zA-Z0-9_-]+)/$ page.php?slug=$1
+
+RewriteRule ^design/([a-zA-Z0-9_-]+)$ project.php?slug=$1
+RewriteRule ^design/([a-zA-Z0-9_-]+)/$ project.php?slug=$1
+
+RewriteRule ^login$ login.php
+RewriteRule ^login/$ login.php
+
+
