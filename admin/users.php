@@ -1,26 +1,29 @@
-<?php
+<?php 
 
 require_once "../head.php";
 
-if ($User->isLogged()) { 
-	
-	if ( Server::ispost() ) {
+if ($User->isLogged()) {  
+	// Fetch all users
+	$users = $User->fetch();
 
-		$token = Auth::randomToken();
+	$data = array();
 
-		$User->register(array(
-			'first_name' => Router::post('first_name'),
-			'last_name'  => Router::post('last_name'),
-			'username'   => Router::post('username'),
-			'email'      => Router::post('email'),
-			'pass'       => Auth::hash(Router::post('pass'), $token),
-			'token'      => $token,
-		));
+	// There is any project?
+	if ($users) {
 
+		$data = array(
+			'users' => $users,
+		);
+
+		// Make project list view
+		View::admin('users', $data);
+
+	} else {
+
+		// Make project list view
+		View::admin('users', $data);
+		
 	}
-
-	View::admin('users');
-	
 } else {
 	Server::redirect('/login');
 }

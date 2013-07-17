@@ -67,12 +67,25 @@ class User extends Model
 	 * Register new user
 	 * @param  Array $data
 	 */
-	public function register($data)
+	public function add($data)
 	{
 		$this->db ->add(
 			$this->table, 
-			'name, pass, email, first_name, last_name, token', 
-			':name, :pass, :email, :first_name, :last_name, :token', 
+			'username, pass, email, first_name, last_name, token', 
+			':username, :pass, :email, :first_name, :last_name, :token', 
+			$data
+		);
+	}
+
+	/**
+	 * Update user data
+	 * @param  Array $data
+	 */
+	public function update($data)
+	{
+		$this->db ->update(
+			$this->table,
+			'username = :username, pass = :pass, email = :email, first_name = :first_name, last_name = :last_name, token = :token', 
 			$data
 		);
 	}

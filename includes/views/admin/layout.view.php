@@ -49,6 +49,11 @@
 					</a>
 				</li>
 				<li class="sidebar__nav__item">
+					<a class="sidebar__nav__item-a" href="<?php echo Url::admin('users.php'); ?>">
+						<div class="button-text"><i class="button-icon icon-folder-open icon-white"></i> Users</div>
+					</a>
+				</li>
+				<li class="sidebar__nav__item">
 					<a class="sidebar__nav__item-a" href="?logout">
 						<div class="button-text"><i class="button-icon icon-off icon-white"></i> Logout</div>
 					</a>
